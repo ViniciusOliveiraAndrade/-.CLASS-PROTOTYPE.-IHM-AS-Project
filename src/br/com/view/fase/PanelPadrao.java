@@ -1,4 +1,4 @@
-package br.com.view.principal;
+package br.com.view.fase;
 
 import java.awt.Graphics;
 import java.awt.Image;

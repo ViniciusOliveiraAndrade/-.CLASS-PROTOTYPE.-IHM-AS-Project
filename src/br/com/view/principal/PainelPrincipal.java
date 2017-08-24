@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import br.com.controller.principal.ControllerPainelPrincipal;
+import br.com.view.fase.PainelFase;
+import br.com.view.fase.PainelFase1;
 
 import javax.swing.ImageIcon;
 
@@ -20,7 +22,7 @@ public class PainelPrincipal extends JPanel{
 	private JButton configButton;
 	private JButton audioButton;
 	
-	private JPanel painelCentral;
+	private PainelFase painelCentral;
 	
 	private PainelBackgroundOff painelBackgroundOff;
 	
@@ -71,6 +73,11 @@ public class PainelPrincipal extends JPanel{
 		this.painelBackgroundOff.setVisible(false);
 		this.add(painelBackgroundOff);
 		
+		this.painelCentral = new PainelFase1();
+		this.painelCentral.setSize(884,559);
+		this.painelCentral.setLocation(54, 39);
+		this.add(painelCentral);
+		
 	}
 	
 	@Override
@@ -82,14 +89,14 @@ public class PainelPrincipal extends JPanel{
 	public void desligarLigarTela(){
 		if(telaLigada){
 			this.telaLigada = false;
-//			this.painelCentral.setVisible(false);
+			this.painelCentral.setVisible(false);
 			this.painelBackgroundOff.setVisible(true);
 			this.ioButton.setIcon(new ImageIcon(getClass().getResource("/IOButtonBlack.png")));
 			
 		}else {
 			this.telaLigada = true;
 			this.painelBackgroundOff.setVisible(false);
-//			this.painelCentral.setVisible(true);
+			this.painelCentral.setVisible(true);
 			this.ioButton.setIcon(new ImageIcon(getClass().getResource("/IOButtonGreen.png")));
 		}
 	}
@@ -97,10 +104,12 @@ public class PainelPrincipal extends JPanel{
 	public void desligarLigarAudio(){
 		if(audioLigado){
 			this.audioLigado = false;
+			this.painelCentral.desativarAtivarAudio();
 			this.audioButton.setIcon(new ImageIcon(getClass().getResource("/MuteButtonBlack.png")));
 			
 		}else {
 			this.audioLigado = true;
+			this.painelCentral.desativarAtivarAudio();
 			this.audioButton.setIcon(new ImageIcon(getClass().getResource("/SoundButtonBlack.png")));
 		}
 	}
