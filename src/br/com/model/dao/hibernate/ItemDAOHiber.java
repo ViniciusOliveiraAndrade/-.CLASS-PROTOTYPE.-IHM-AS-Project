@@ -1,11 +1,11 @@
-package br.com.model.dao;
+package br.com.model.dao.hibernate;
 
 import java.util.ArrayList;
 
-import br.com.model.dao.abistrato.ImagemItemDAO;
-import br.com.model.vo.ImagemItem;
+import br.com.model.dao.abistrato.ItemDAO;
+import br.com.model.vo.Item;
 
-public class ImagemItemDAOXML extends ImagemItemDAO{
+public class ItemDAOHiber extends ItemDAO{
 
 	@Override
 	public void inserir() {
@@ -20,7 +20,7 @@ public class ImagemItemDAOXML extends ImagemItemDAO{
 	}
 
 	@Override
-	public ImagemItem getById(int id) {
+	public Item getById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -32,7 +32,7 @@ public class ImagemItemDAOXML extends ImagemItemDAO{
 	}
 
 	@Override
-	public ArrayList<ImagemItem> listar() {
+	public ArrayList<Item> listar() {
 		// TODO Auto-generated method stub
 		return null;
 	}

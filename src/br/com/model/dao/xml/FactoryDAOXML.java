@@ -1,4 +1,4 @@
-package br.com.model.dao;
+package br.com.model.dao.xml;
 
 import br.com.model.dao.abistrato.FactoryDAO;
 import br.com.model.dao.abistrato.TemaDAO;

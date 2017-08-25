@@ -1,4 +1,4 @@
-package br.com.model.dao;
+package br.com.model.dao.xml;
 
 import java.util.ArrayList;
 

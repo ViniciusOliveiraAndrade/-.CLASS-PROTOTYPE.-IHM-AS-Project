@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import br.com.model.dao.DAO;
+import br.com.model.dao.hibernate.ImagemItemDAOHiber;
+
 @Entity
 public class Item {
 
@@ -17,17 +20,19 @@ public class Item {
 
 	@Column(unique = true)
 	private String nome;
-
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "ImagemItem_id")
-	private ImagemItem imagen;
-
+	
+	private int idImagemItem;
+	
+	@OneToOne
+//	@JoinColumn(name = "ImagemItem_id")
+	private ImagemItem imagem = null;
+	
 	public Item() {}
 	
 	public Item(String nome, ImagemItem imagen) {
 		super();
 		this.nome = nome;
-		this.imagen = imagen;
+		this.imagem = imagen;
 	}
 
 
@@ -39,12 +44,16 @@ public class Item {
 		return id;
 	}
 	
-	public ImagemItem getImagen() {
-		return imagen;
+	public ImagemItem getImagem() {
+		if(imagem != null) {
+		return imagem;
+		}else {
+			return DAO.getImageById(idImagemItem);
+		}
 	}
 
-	public void setImagen(ImagemItem imagen) {
-		this.imagen = imagen;
+	public void setImagem(ImagemItem imagem) {
+		this.imagem = imagem;
 	}
 
 	public String getNome() {
