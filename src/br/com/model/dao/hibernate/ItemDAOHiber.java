@@ -5,35 +5,26 @@ import java.util.ArrayList;
 import br.com.model.dao.abistrato.ItemDAO;
 import br.com.model.vo.Item;
 
+@SuppressWarnings("static-access")
 public class ItemDAOHiber extends ItemDAO{
 
-	@Override
 	public void inserir() {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void atualizar() {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public Item getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return ConnectionHiber.getConnectionHiber().getEntityManager().find(Item.class, id);
 	}
 
-	@Override
 	public void removeById(int id) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public ArrayList<Item> listar() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

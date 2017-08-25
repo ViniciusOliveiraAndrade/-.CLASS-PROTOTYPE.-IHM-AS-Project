@@ -8,7 +8,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import br.com.controller.principal.ControllerPainelPrincipal;
-import br.com.view.fase.PainelFase;
 import br.com.view.fase.PainelFase1;
 
 import javax.swing.ImageIcon;
@@ -22,9 +21,11 @@ public class PainelPrincipal extends JPanel{
 	private JButton configButton;
 	private JButton audioButton;
 	
-	private PainelFase painelCentral;
+	private PainelCentral painelCentral;
 	
 	private PainelBackgroundOff painelBackgroundOff;
+	
+	private PainelPassWord painelPassWord;
 	
 	private Image backGround;
 	
@@ -74,8 +75,6 @@ public class PainelPrincipal extends JPanel{
 		this.add(painelBackgroundOff);
 		
 		this.painelCentral = new PainelFase1();
-		this.painelCentral.setSize(884,559);
-		this.painelCentral.setLocation(54, 39);
 		this.add(painelCentral);
 		
 	}
@@ -88,19 +87,33 @@ public class PainelPrincipal extends JPanel{
 	
 	public void desligarLigarTela(){
 		if(telaLigada){
-			this.telaLigada = false;
+			
 			this.painelCentral.setVisible(false);
 			this.painelBackgroundOff.setVisible(true);
 			this.ioButton.setIcon(new ImageIcon(getClass().getResource("/IOButtonBlack.png")));
+			this.telaLigada = false;
 			
 		}else {
-			this.telaLigada = true;
+			
 			this.painelBackgroundOff.setVisible(false);
 			this.painelCentral.setVisible(true);
 			this.ioButton.setIcon(new ImageIcon(getClass().getResource("/IOButtonGreen.png")));
+			this.telaLigada = true;
 		}
 	}
 	
+	public void criarPainelPAssWord() {
+		if(!this.isTelaLigada()) {
+			this.painelPassWord = new PainelPassWord(this.controller);
+			this.add(this.painelPassWord);
+		}
+	}
+	
+	public void removerPainelPAssWord() {
+		this.painelPassWord.setVisible(false);
+		this.remove(this.painelPassWord);
+		this.painelPassWord = null;
+	}
 	public void desligarLigarAudio(){
 		if(audioLigado){
 			this.audioLigado = false;
@@ -124,6 +137,10 @@ public class PainelPrincipal extends JPanel{
 
 	public JButton getAudioButton() {
 		return audioButton;
+	}
+
+	public boolean isTelaLigada() {
+		return telaLigada;
 	}
 	
 	

@@ -5,35 +5,26 @@ import java.util.ArrayList;
 import br.com.model.dao.abistrato.TemaDAO;
 import br.com.model.vo.Tema;
 
+@SuppressWarnings("static-access")
 public class TemaDAOHiber extends TemaDAO{
 
-	@Override
 	public void inserir() {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void atualizar() {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public Tema getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return ConnectionHiber.getConnectionHiber().getEntityManager().find(Tema.class, id);
 	}
 
-	@Override
 	public void removeById(int id) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public ArrayList<Tema> listar() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -21,7 +21,7 @@ public class ConnectionHiber{
 		return entityManager;
 	}
 	
-	public static synchronized ConnectionHiber getConnectionXML() {
+	public static synchronized ConnectionHiber getConnectionHiber() {
 		if(instancia == null) {
 			return instancia = new ConnectionHiber();
 		}else {return instancia;}

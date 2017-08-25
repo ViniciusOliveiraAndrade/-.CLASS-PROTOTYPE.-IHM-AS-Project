@@ -1,17 +1,18 @@
 package br.com.view.fase;
 
-import javax.swing.JPanel;
+import br.com.view.principal.PainelCentral;
 
-public abstract class PainelFase extends JPanel{
+public abstract class PainelFase extends PainelCentral{
 		
 	private static final long serialVersionUID = 1L;
 
 	public PainelFase() {
-		this.setOpaque(false);
-		this.setLayout(null);
+		
+		
+		
 	}
 	
-	public abstract void desativarAtivarAudio();
+	
 	
 	
 }
