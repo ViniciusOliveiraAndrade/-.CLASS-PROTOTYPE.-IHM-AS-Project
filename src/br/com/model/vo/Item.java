@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-import br.com.model.dao.DAO;
 
 @Entity
 public class Item {
@@ -18,7 +17,7 @@ public class Item {
 	@Column(unique = true)
 	private String nome;
 	
-	private int idImagemItem;
+//	private int idImagemItem;
 	
 	@OneToOne
 //	@JoinColumn(name = "ImagemItem_id")
@@ -42,11 +41,7 @@ public class Item {
 	}
 	
 	public ImagemItem getImagem() {
-		if(imagem != null) {
 		return imagem;
-		}else {
-			return imagem = DAO.getImageById(idImagemItem);
-		}
 	}
 
 	public void setImagem(ImagemItem imagem) {

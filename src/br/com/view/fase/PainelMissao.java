@@ -2,6 +2,7 @@ package br.com.view.fase;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -20,6 +21,8 @@ public class PainelMissao extends JPanel {
 	
 	private String missao;
 	
+	private Rectangle area = null;
+	
 	public PainelMissao() {
 		this.iniciarPainel();
 	}
@@ -32,20 +35,32 @@ public class PainelMissao extends JPanel {
 	}
 	
 	public void adicionarMissao(String nome){
+		
+		try {
+			this.labelMissao.setVisible(false);
+			this.remove(labelMissao);
+		} catch (Exception e) {}
 		this.labelMissao = new JLabel ("  "+nome);
 		this.labelMissao.setFont(new Font("Dialog", Font.BOLD, 32));
 		this.labelMissao.setForeground(Color.black);
-		this.add(labelMissao);
+		this.add(labelMissao, BorderLayout.CENTER);
 		
 		this.missao = nome;
+//		this.repaint();
 	}
 	
 	public void adicionarMissao(String imagem,String nome) {
+		
+		try {
+			this.labelMissao.setVisible(false);
+			this.remove(labelMissao);
+		} catch (Exception e) {	}
 		this.labelMissao = new JLabel (new ImageIcon(this.getClass().getResource(imagem)));
 		this.labelMissao.setForeground(Color.black);
-		this.add(labelMissao);
+		this.add(labelMissao, BorderLayout.CENTER);
 		
 		this.missao = nome;
+//		this.repaint();
 	} 
 	
 	
@@ -57,5 +72,16 @@ public class PainelMissao extends JPanel {
 	public String getMissao() {
 		return missao;
 	}
+
+	public Rectangle getArea() {
+		if(area == null) {
+			return area = new Rectangle(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+		}else {
+			area.setBounds(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+			return area;
+		}
+	}
+	
+	
 	
 }

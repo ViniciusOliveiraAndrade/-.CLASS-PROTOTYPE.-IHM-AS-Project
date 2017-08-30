@@ -40,6 +40,8 @@ public class PainelFase1 extends PainelFase{
 		
 		this.controller = new ControllerPainelFase1(o, this);
 		this.addMouseListener(controller);
+		this.addMouseMotionListener(controller);
+		
 	}
 	
 	public void lugarInicialDasOpcoes(){

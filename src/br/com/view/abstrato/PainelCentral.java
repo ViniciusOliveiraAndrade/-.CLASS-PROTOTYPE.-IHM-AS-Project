@@ -9,7 +9,7 @@ public abstract class PainelCentral extends JPanel{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private boolean audioAtivo = false;
+	private boolean audioAtivo = true;
 	
 	public PainelCentral(Observer o) {
 		this.setOpaque(false);
@@ -18,15 +18,16 @@ public abstract class PainelCentral extends JPanel{
 		this.setLocation(54, 39);
 		
 	}
-	public abstract void desativarAtivarAudio();
-	
+	public void desativarAtivarAudio(){
+		if (this.audioAtivo){
+			this.audioAtivo = false;
+		}else {
+			this.audioAtivo = true;
+		}
+	}
 	
 	public boolean isAudioAtivo() {
 		return audioAtivo;
 	}
-	public void setAudioAtivo(boolean audioAtivo) {
-		this.audioAtivo = audioAtivo;
-	}
-	
 	
 }
