@@ -45,7 +45,7 @@ public class Item {
 		if(imagem != null) {
 		return imagem;
 		}else {
-			return DAO.getImageById(idImagemItem);
+			return imagem = DAO.getImageById(idImagemItem);
 		}
 	}
 

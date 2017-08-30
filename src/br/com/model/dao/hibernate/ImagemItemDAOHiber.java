@@ -4,11 +4,12 @@ import java.util.ArrayList;
 
 import br.com.model.dao.abistrato.ImagemItemDAO;
 import br.com.model.vo.ImagemItem;
+import br.com.model.vo.Tema;
 
 @SuppressWarnings("static-access")
 public class ImagemItemDAOHiber extends ImagemItemDAO{
 
-	public void inserir() {
+	public void inserir(Tema t) {
 	}
 
 	public void atualizar() {
@@ -23,6 +24,12 @@ public class ImagemItemDAOHiber extends ImagemItemDAO{
 
 	public ArrayList<ImagemItem> listar() {
 		return null;
+	}
+
+	@Override
+	public void inserir() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

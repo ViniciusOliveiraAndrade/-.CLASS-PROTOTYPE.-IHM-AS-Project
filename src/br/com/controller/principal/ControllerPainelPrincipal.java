@@ -28,11 +28,24 @@ public class ControllerPainelPrincipal implements ActionListener, Observer{
 		}
 	}
 
+	
 	public void update(Observable o, Object arg) {
-		if(o.getClass() == ControllerPainelPassWord.class && (boolean)arg){
+		try {
+			if(o.getClass() == ControllerPainelPassWord.class && (boolean)arg){
+				System.out.println("PODE ACESSAR");
+				this.painel.removerPainelPAssWord();
+			}
+		} catch (Exception e) {	}
+		try {
+			if(o.getClass() == ControllerPainelMenus.class) {
+				if(1 ==(int)arg){
+					this.painel.criarFasse1();
+				}
+			}
 			
-			this.painel.removerPainelPAssWord();
-		}
+		} catch (Exception e) {	}
+		
+		
 	}
 
 }

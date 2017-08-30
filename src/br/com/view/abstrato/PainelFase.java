@@ -1,18 +1,12 @@
-package br.com.view.fase;
+package br.com.view.abstrato;
 
-import br.com.view.principal.PainelCentral;
+import java.util.Observer;
 
 public abstract class PainelFase extends PainelCentral{
 		
 	private static final long serialVersionUID = 1L;
 
-	public PainelFase() {
-		
-		
-		
+	public PainelFase(Observer o) {
+		super(o);
 	}
-	
-	
-	
-	
 }

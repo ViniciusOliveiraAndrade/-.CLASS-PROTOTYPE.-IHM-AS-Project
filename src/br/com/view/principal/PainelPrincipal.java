@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import br.com.controller.principal.ControllerPainelPrincipal;
+import br.com.view.abstrato.PainelCentral;
 import br.com.view.fase.PainelFase1;
 
 import javax.swing.ImageIcon;
@@ -51,7 +52,6 @@ public class PainelPrincipal extends JPanel{
 		this.ioButton.addActionListener(controller);
 		this.add(this.ioButton);
 		
-		
 		this.configButton = new JButton(new ImageIcon(getClass().getResource("/ConfigButtonBlack.png")));
 		this.configButton.setContentAreaFilled(false);
 		this.configButton.setBorderPainted(false);
@@ -74,7 +74,7 @@ public class PainelPrincipal extends JPanel{
 		this.painelBackgroundOff.setVisible(false);
 		this.add(painelBackgroundOff);
 		
-		this.painelCentral = new PainelFase1();
+		this.painelCentral = new PainelMenus(controller);
 		this.add(painelCentral);
 		
 	}
@@ -84,6 +84,8 @@ public class PainelPrincipal extends JPanel{
 		g.drawImage(backGround, 0, 0, this);
 		super.paintComponent(g);
 	}
+	
+	//Desligar / Ligar
 	
 	public void desligarLigarTela(){
 		if(telaLigada){
@@ -102,18 +104,40 @@ public class PainelPrincipal extends JPanel{
 		}
 	}
 	
+	//Criar PainelCentral
+	private void criarPainelCentral( PainelCentral pc ){
+		this.painelCentral.setVisible(false);
+		this.remove(this.painelCentral);
+		this.painelCentral = pc;
+		this.add(painelCentral);
+	}
+	
+	//Fases
+	//Fase1
+	public void criarFasse1(){
+		this.criarPainelCentral(new PainelFase1(controller));
+	}
+	
+	
+	
+	
+	//Password
 	public void criarPainelPAssWord() {
 		if(!this.isTelaLigada()) {
 			this.painelPassWord = new PainelPassWord(this.controller);
 			this.add(this.painelPassWord);
 		}
 	}
-	
+
 	public void removerPainelPAssWord() {
 		this.painelPassWord.setVisible(false);
 		this.remove(this.painelPassWord);
 		this.painelPassWord = null;
+		this.repaint();///Verificar se serve
 	}
+	
+	
+	//Audio
 	public void desligarLigarAudio(){
 		if(audioLigado){
 			this.audioLigado = false;
@@ -126,7 +150,11 @@ public class PainelPrincipal extends JPanel{
 			this.audioButton.setIcon(new ImageIcon(getClass().getResource("/SoundButtonBlack.png")));
 		}
 	}
-
+	
+	
+	
+	
+	
 	public JButton getIoButton() {
 		return ioButton;
 	}
