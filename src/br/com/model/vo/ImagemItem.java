@@ -1,18 +1,18 @@
 package br.com.model.vo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+//import javax.persistence.Column;
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.Id;
 
-@Entity
+//@Entity
 public class ImagemItem {
 	
-	@Id
-	@GeneratedValue
+//	@Id
+//	@GeneratedValue
 	private int id;
 
-	@Column(unique = true)
+//	@Column(unique = true)
 	private String local;
 	
 	public ImagemItem() {}

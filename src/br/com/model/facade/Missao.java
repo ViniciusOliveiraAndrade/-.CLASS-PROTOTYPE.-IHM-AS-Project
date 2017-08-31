@@ -22,6 +22,8 @@ public class Missao {
 	private Random r;
 	
 	private int q = 0;
+	
+	private int rodadas;
 
 	public Missao() {
 		this.criarItems();
@@ -34,7 +36,11 @@ public class Missao {
 		this.op3 = new Item(missao);
 		r = new Random();
 		
+		System.out.println(missao.getNome());
+		
 		this.gerarOpcoes();	
+		
+		this.rodadas = items.size();
 	}
 
 	private void criarItems(){
@@ -44,6 +50,7 @@ public class Missao {
 		this.items.add(new Item("Teclado",new ImagemItem("/Teclado.png")));
 		this.items.add(new Item("Gabinete",new ImagemItem("/Gabinete.png")));
 		this.items.add(new Item("Notebook",new ImagemItem("/Notebook.png")));
+		this.items.add(new Item("Webcam",new ImagemItem("/Webcam.png")));
 	}
 		
 	public boolean validarMissao(String hit ) {
@@ -56,20 +63,24 @@ public class Missao {
 	}
 	
 	private boolean trocarMissao(){
-		if(podeContinuar()) {
+		
+		if(this.q < this.items.size()) {
 			this.itemsPassados.add(missao);
 			this.missao =  this.items.get(q);
 			this.q++;
+			this.rodadas--;
 			this.gerarOpcoes();
 			return true;
 		}else {
 			this.itemsPassados.add(missao);
+			this.rodadas--;
 			return false;
 		}
 	}
 	
 	public boolean podeContinuar(){
-		if (this.q < this.items.size()){
+		if (this.rodadas > 0){
+			System.out.println(rodadas);
 			return true;
 		}else {
 			return false;
@@ -101,17 +112,26 @@ public class Missao {
 		if(i == 0) {
 			this.op1 = this.missao;
 			
+			this.op2 = itemAleatorio();
+			this.op3 = itemAleatorio();
+			
 			this.op2 = this.gerarOp(op1,op2);
 			this.op3 = this.gerarOp(op2,op3);
 		}
 		else if(i == 1){
 			this.op2 = this.missao;
 			
+			this.op1 = itemAleatorio();
+			this.op3 = itemAleatorio();
+			
 			this.op1 = this.gerarOp(op2,op1);
 			this.op3 = this.gerarOp(op1,op3);
 		}
 		else{
 			this.op3 = this.missao;
+			
+			this.op2 = itemAleatorio();
+			this.op1 = itemAleatorio();
 			
 			this.op2 = this.gerarOp(op3,op2);
 			this.op1 = this.gerarOp(op2,op1);

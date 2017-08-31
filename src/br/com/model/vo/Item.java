@@ -1,25 +1,25 @@
 package br.com.model.vo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+//import javax.persistence.Column;
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.Id;
+//import javax.persistence.OneToOne;
 
 
-@Entity
+//@Entity
 public class Item {
 
-	@Id
-	@GeneratedValue
+//	@Id
+//	@GeneratedValue
 	private int id;
 
-	@Column(unique = true)
+//	@Column(unique = true)
 	private String nome;
 	
 //	private int idImagemItem;
 	
-	@OneToOne
+//	@OneToOne
 //	@JoinColumn(name = "ImagemItem_id")
 	private ImagemItem imagem = null;
 	

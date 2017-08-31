@@ -78,7 +78,7 @@ public class ControllerPainelFase1 extends ControllerPainelCentral implements Mo
 			this.fase.lugarInicialDasOpcoes();
 		}
 		if(!this.missao.podeContinuar()) {
-			JOptionPane.showMessageDialog(null, "parabens vc passou");
+			JOptionPane.showMessageDialog(null, "Parabems vc venceu");
 			this.voltarParaMenu();
 		}
 

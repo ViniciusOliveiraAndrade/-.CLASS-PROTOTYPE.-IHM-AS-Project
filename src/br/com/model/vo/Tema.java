@@ -2,25 +2,25 @@ package br.com.model.vo;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+//import javax.persistence.Column;
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.Id;
+//import javax.persistence.JoinColumn;
+//import javax.persistence.OneToMany;
 
-@Entity
+//@Entity
 public class Tema {
 
-	@Id
-	@GeneratedValue
+//	@Id
+//	@GeneratedValue
 	private int id;
 
-	@Column(unique = true)
+//	@Column(unique = true)
 	private String nome;
 
-	@OneToMany
-	@JoinColumn(name = "tema_id")
+//	@OneToMany
+//	@JoinColumn(name = "tema_id")
 	private List<Item> itens;
 
 	public Tema() {}
