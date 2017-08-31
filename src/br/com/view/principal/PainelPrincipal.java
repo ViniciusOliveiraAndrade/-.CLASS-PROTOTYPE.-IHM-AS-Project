@@ -106,10 +106,17 @@ public class PainelPrincipal extends JPanel{
 	
 	//Criar PainelCentral
 	private void criarPainelCentral( PainelCentral pc ){
+
 		this.painelCentral.setVisible(false);
 		this.remove(this.painelCentral);
 		this.painelCentral = pc;
 		this.add(painelCentral);
+	}
+	
+	//Painel de Menu
+	
+	public void criarMenu(){
+		this.criarPainelCentral(new PainelMenus(controller));
 	}
 	
 	//Fases

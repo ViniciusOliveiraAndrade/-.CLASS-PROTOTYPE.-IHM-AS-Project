@@ -7,7 +7,6 @@ import java.util.Random;
 import br.com.model.vo.ImagemItem;
 import br.com.model.vo.Item;
 
-@SuppressWarnings("unchecked")
 public class Missao {
 
 
@@ -30,7 +29,9 @@ public class Missao {
 		Collections.shuffle(this.items);
 		this.missao = this.items.get(q);
 		this.q++;
-		
+		this.op1 = new Item(missao);
+		this.op2 = new Item(missao);
+		this.op3 = new Item(missao);
 		r = new Random();
 		
 		this.gerarOpcoes();	
@@ -55,7 +56,7 @@ public class Missao {
 	}
 	
 	private boolean trocarMissao(){
-		if(this.q < items.size()) {
+		if(podeContinuar()) {
 			this.itemsPassados.add(missao);
 			this.missao =  this.items.get(q);
 			this.q++;
@@ -76,47 +77,44 @@ public class Missao {
 	}
 
 	private Item itemAleatorio() {
-		ArrayList<Item> Aleatorio = (ArrayList<Item>)items.clone();
+		ArrayList<Item> Aleatorio = new ArrayList<>();
+		for (Item i :items) {
+			Aleatorio.add(i);
+		}
 		Collections.shuffle(Aleatorio);
 		return Aleatorio.get(0);
 	}
 
 	private Item gerarOp(Item primario, Item secundario) {
-		if (secundario == primario) {
+		if ((secundario.getNome() == primario.getNome())||(secundario.getNome() == this.missao.getNome())) {
 			secundario = this.itemAleatorio();
 			return gerarOp(primario, secundario);
-			
 		}else {
 			return secundario;
 		}
 	}
 	
+	
 	public void gerarOpcoes(){
 		int i = r.nextInt(3);
-		switch (i) {
 		
-		case 0:{
+		if(i == 0) {
 			this.op1 = this.missao;
 			
 			this.op2 = this.gerarOp(op1,op2);
 			this.op3 = this.gerarOp(op2,op3);
-			break;
-			}
-		case 1:{
+		}
+		else if(i == 1){
 			this.op2 = this.missao;
 			
 			this.op1 = this.gerarOp(op2,op1);
 			this.op3 = this.gerarOp(op1,op3);
-			break;
-			}
-		case 3:{
+		}
+		else{
 			this.op3 = this.missao;
 			
 			this.op2 = this.gerarOp(op3,op2);
 			this.op1 = this.gerarOp(op2,op1);
-			
-			break;
-			}
 		}
 	}
 	

@@ -31,6 +31,11 @@ public class Item {
 		this.imagem = imagen;
 	}
 
+	public Item(Item i) {
+		super();
+		this.nome = i.getNome();
+		this.imagem = i.getImagem();
+	}
 
 	/*
 	 * =====================================> GET and SET  <===================================== 

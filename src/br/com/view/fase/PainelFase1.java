@@ -22,6 +22,8 @@ public class PainelFase1 extends PainelFase{
 	
 	public PainelFase1(Observer o) {
 		super(o);
+		
+
 		this.missao = new PainelMissao();
 		this.missao.setLocation((this.getWidth()/2)- (this.missao.getWidth()/2) , 10);
 		this.add(this.missao);
@@ -41,6 +43,8 @@ public class PainelFase1 extends PainelFase{
 		this.controller = new ControllerPainelFase1(o, this);
 		this.addMouseListener(controller);
 		this.addMouseMotionListener(controller);
+		
+		
 		
 	}
 	

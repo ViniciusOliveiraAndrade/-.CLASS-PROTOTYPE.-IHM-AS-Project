@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
 
+import br.com.controller.fase.ControllerPainelFase1;
 import br.com.view.principal.PainelPrincipal;
 
 public class ControllerPainelPrincipal implements ActionListener, Observer{
@@ -30,6 +31,7 @@ public class ControllerPainelPrincipal implements ActionListener, Observer{
 
 	
 	public void update(Observable o, Object arg) {
+		System.out.println("\nEntrou do observador\n");
 		try {
 			if(o.getClass() == ControllerPainelPassWord.class && (boolean)arg){
 				System.out.println("PODE ACESSAR");
@@ -44,7 +46,14 @@ public class ControllerPainelPrincipal implements ActionListener, Observer{
 			}
 			
 		} catch (Exception e) {	}
-		
+		try {
+			if(o.getClass() == ControllerPainelFase1.class) {
+				if((boolean)arg){
+					this.painel.criarMenu();
+				}
+			}
+			
+		} catch (Exception e) {	}
 		
 	}
 
