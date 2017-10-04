@@ -20,8 +20,8 @@ public class PainelFase1 extends PainelFase{
 	
 	private ControllerPainelFase1 controller;
 	
-	public PainelFase1(Observer o) {
-		super(o);
+	public PainelFase1(Observer o, boolean audio) {
+		super(o,audio);
 		
 
 		this.missao = new PainelMissao();

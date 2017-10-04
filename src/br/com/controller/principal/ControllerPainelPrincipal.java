@@ -15,7 +15,7 @@ public class ControllerPainelPrincipal implements ActionListener, Observer{
 	public ControllerPainelPrincipal(PainelPrincipal painel) {
 		this.painel = painel;
 	}
-
+	
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == this.painel.getIoButton()){
 			this.painel.desligarLigarTela();

@@ -74,7 +74,7 @@ public class PainelPrincipal extends JPanel{
 		this.painelBackgroundOff.setVisible(false);
 		this.add(painelBackgroundOff);
 		
-		this.painelCentral = new PainelMenus(controller);
+		this.painelCentral = new PainelMenus(controller,this.audioLigado);
 		this.add(painelCentral);
 		
 	}
@@ -116,13 +116,13 @@ public class PainelPrincipal extends JPanel{
 	//Painel de Menu
 	
 	public void criarMenu(){
-		this.criarPainelCentral(new PainelMenus(controller));
+		this.criarPainelCentral(new PainelMenus(controller,this.audioLigado));
 	}
 	
 	//Fases
 	//Fase1
 	public void criarFasse1(){
-		this.criarPainelCentral(new PainelFase1(controller));
+		this.criarPainelCentral(new PainelFase1(controller,this.audioLigado));
 	}
 	
 	
@@ -177,6 +177,5 @@ public class PainelPrincipal extends JPanel{
 	public boolean isTelaLigada() {
 		return telaLigada;
 	}
-	
-	
+
 }

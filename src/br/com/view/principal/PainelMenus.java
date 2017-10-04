@@ -18,8 +18,8 @@ public class PainelMenus extends PainelCentral{
 	
 	private ControllerPainelCentral controller;
 	
-	public PainelMenus(Observer o) {
-		super(o);
+	public PainelMenus(Observer o, boolean audio) {
+		super(o,audio);
 		this.setLayout(new FlowLayout());
 		this.controller = new ControllerPainelMenus(this, o);
 		this.op1 = new JButton(new ImageIcon(getClass().getResource("/1ButtonBlue.png")));

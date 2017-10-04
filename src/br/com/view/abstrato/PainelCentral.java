@@ -11,11 +11,12 @@ public abstract class PainelCentral extends JPanel{
 	
 	private boolean audioAtivo = true;
 	
-	public PainelCentral(Observer o) {
+	public PainelCentral(Observer o, boolean audioLigado) {
 		this.setOpaque(false);
 		this.setLayout(null);
 		this.setSize(884,559);
 		this.setLocation(54, 39);
+		this.audioAtivo = audioLigado;
 		
 	}
 	public void desativarAtivarAudio(){

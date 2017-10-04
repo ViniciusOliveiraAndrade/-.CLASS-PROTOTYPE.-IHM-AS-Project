@@ -45,12 +45,13 @@ public class Missao {
 
 	private void criarItems(){
 		this.items = new ArrayList<>();
-		this.items.add(new Item("Monitor",new ImagemItem("/Monitor.png")));
-		this.items.add(new Item("Mouse",new ImagemItem("/Mouse.png")));
-		this.items.add(new Item("Teclado",new ImagemItem("/Teclado.png")));
-		this.items.add(new Item("Gabinete",new ImagemItem("/Gabinete.png")));
-		this.items.add(new Item("Notebook",new ImagemItem("/Notebook.png")));
-		this.items.add(new Item("Webcam",new ImagemItem("/Webcam.png")));
+		this.items.add(new Item("MONITOR",new ImagemItem("/Monitor.png")));
+		this.items.add(new Item("MOUSE",new ImagemItem("/Mouse.png")));
+		this.items.add(new Item("TECLADO",new ImagemItem("/Teclado.png")));
+		this.items.add(new Item("GABINETE",new ImagemItem("/Gabinete.png")));
+		this.items.add(new Item("NOTEBOOK",new ImagemItem("/Notebook.png")));
+		this.items.add(new Item("WEBCAM",new ImagemItem("/Webcam.png")));
+		//ADICIONAR IMPRESSORA
 	}
 		
 	public boolean validarMissao(String hit ) {
